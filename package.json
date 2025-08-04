@@ -1,0 +1,16 @@
+{
+  "name": "project_01",
+  "version": "1.0.0",
+  "description": "first backend project",
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "license": "ISC",
+  "author": "Bharat Aggarwal",
+  "type": "commonjs",
+  "main": "\t",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
