@@ -1,5 +1,4 @@
-import { v2 as cloudanary} from 'cloudinary';
-import { log } from 'console';
+import { v2 as cloudanary} from 'cloudinary';   
 import fs from "fs"
 
 cloudanary.config({ 
