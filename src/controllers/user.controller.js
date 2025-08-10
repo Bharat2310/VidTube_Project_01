@@ -19,17 +19,17 @@ const registerUser = asyncHandler( async (req, res) => {
    console.log(`email : ${email}`);
    
     if (
-        [username, email, fullname, password].some((x) => x?.trim === "")
+        [username, email, fullname, password].some((x) => x?.trim() === "")
     ) {
         throw new ApiError(400 , "all fields are required")
     }
-     emailRegEx = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+     emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
      const result = emailRegEx.test(email)
      if (!result) {
         throw new ApiError(400 , "enter correct email address")
      }
 
-     const Existence = User.findOne(
+     const Existence = await User.findOne(
         {
             $or : [{fullname}, {email}]
         }
