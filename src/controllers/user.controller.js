@@ -23,7 +23,7 @@ const registerUser = asyncHandler( async (req, res) => {
     ) {
         throw new ApiError(400 , "all fields are required")
     }
-     emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+     let emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
      const result = emailRegEx.test(email)
      if (!result) {
         throw new ApiError(400 , "enter correct email address")
