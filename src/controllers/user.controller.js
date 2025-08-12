@@ -31,7 +31,7 @@ const registerUser = asyncHandler( async (req, res) => {
 
      const Existence = await User.findOne(
         {
-            $or : [{fullname}, {email}]
+            $or : [{username}, {email}]
         }
      )
      if (Existence) {
@@ -66,7 +66,7 @@ const registerUser = asyncHandler( async (req, res) => {
         throw new ApiError(500, "something went wrong while registering user")
      }
      return res.status(201).json(
-        new ApiResponse(200, createdUser, "user created Successfully")
+        new ApiResponse(201, createdUser, "user created Successfully")
      )
     
 } )
