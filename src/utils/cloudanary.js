@@ -1,5 +1,6 @@
 import { v2 as cloudanary} from 'cloudinary';   
 import fs from "fs"
+import { loadEnvFile } from 'process';
 
 cloudanary.config({ 
         cloud_name: process.env.CLOUDANARY_CLOUD_NAME, 
@@ -13,7 +14,8 @@ const uploadOnCloudinary = async (localfilepath) => {
         const response = await cloudanary.uploader.upload(localfilepath, {
             resource_type: 'auto'
         })
-        console.log(`file uploaded successfully : ${response.url}`);
+        //console.log(`file uploaded successfully : ${response.url}`);
+        fs.unlinkSync(localfilepath)
         return response        
     } catch (error) {
         fs.unlinkSync(localfilepath) 
